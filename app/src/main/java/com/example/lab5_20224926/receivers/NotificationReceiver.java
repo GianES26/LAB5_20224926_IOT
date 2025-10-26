@@ -10,10 +10,6 @@ import java.util.Calendar;
 
 public class NotificationReceiver extends BroadcastReceiver {
     
-    // Horario permitido para notificaciones
-    private static final int MIN_HOUR = 6;  // 6:00 AM
-    private static final int MAX_HOUR = 24; // 12:00 AM (medianoche)
-    
     @Override
     public void onReceive(Context context, Intent intent) {
         String notificationType = intent.getStringExtra(NotificationHelper.EXTRA_NOTIFICATION_TYPE);
@@ -63,45 +59,32 @@ public class NotificationReceiver extends BroadcastReceiver {
             // Para días: agregar X días completos
             current.add(Calendar.DAY_OF_YEAR, course.getFrequencyValue());
         } else if ("hours".equals(course.getFrequencyType())) {
-            // Para horas: agregar X horas dentro del día actual
-            current.add(Calendar.HOUR_OF_DAY, course.getFrequencyValue());
+            // Para horas: calcular la siguiente notificación del día
+            Calendar originalTime = Calendar.getInstance();
+            originalTime.setTimeInMillis(course.getNextSessionDateTime());
             
-            // Si se pasa de las 24:00 (medianoche), mover al día siguiente a la misma hora inicial
-            if (current.get(Calendar.HOUR_OF_DAY) >= MAX_HOUR || current.get(Calendar.HOUR_OF_DAY) < MIN_HOUR) {
-                // Obtener la hora inicial del primer recordatorio
-                Calendar originalTime = Calendar.getInstance();
-                originalTime.setTimeInMillis(course.getNextSessionDateTime());
-                
-                // Mover al día siguiente
+            // Obtener hora y minuto inicial
+            int originalHour = originalTime.get(Calendar.HOUR_OF_DAY);
+            int originalMinute = originalTime.get(Calendar.MINUTE);
+            int frequencyHours = course.getFrequencyValue();
+            
+            // Calcular la siguiente hora del patrón
+            int nextHour = originalHour + frequencyHours;
+            
+            // Si la siguiente hora se pasa de las 24 horas (>= 24), ir al día siguiente y reiniciar patrón
+            if (nextHour >= 24) {
                 current.add(Calendar.DAY_OF_YEAR, 1);
-                current.set(Calendar.HOUR_OF_DAY, originalTime.get(Calendar.HOUR_OF_DAY));
-                current.set(Calendar.MINUTE, originalTime.get(Calendar.MINUTE));
-                current.set(Calendar.SECOND, 0);
-                current.set(Calendar.MILLISECOND, 0);
+                current.set(Calendar.HOUR_OF_DAY, originalHour);
+                current.set(Calendar.MINUTE, originalMinute);
+            } else {
+                current.set(Calendar.HOUR_OF_DAY, nextHour);
+                current.set(Calendar.MINUTE, originalMinute);
             }
+            
+            current.set(Calendar.SECOND, 0);
+            current.set(Calendar.MILLISECOND, 0);
         }
         
-        // Verificar si está dentro del horario permitido (redundante para días, útil para edge cases)
-        return adjustToAllowedTime(current);
-    }
-    
-    private long adjustToAllowedTime(Calendar dateTime) {
-        int hour = dateTime.get(Calendar.HOUR_OF_DAY);
-        
-        // Si está antes de las 6 AM, mover a las 6 AM del mismo día
-        if (hour < MIN_HOUR) {
-            dateTime.set(Calendar.HOUR_OF_DAY, MIN_HOUR);
-            dateTime.set(Calendar.MINUTE, 0);
-            dateTime.set(Calendar.SECOND, 0);
-        }
-        // Si está después de medianoche (≥24), mover a las 6 AM del día siguiente
-        else if (hour >= MAX_HOUR) {
-            dateTime.add(Calendar.DAY_OF_YEAR, 1);
-            dateTime.set(Calendar.HOUR_OF_DAY, MIN_HOUR);
-            dateTime.set(Calendar.MINUTE, 0);
-            dateTime.set(Calendar.SECOND, 0);
-        }
-        
-        return dateTime.getTimeInMillis();
+        return current.getTimeInMillis();
     }
 }
