@@ -6,7 +6,7 @@
     <string name="default_motivational_message">¡Hoy es un gran día para aprender!</string>
     <string name="view_courses">Ver mis cursos</string>
     <string name="settings">Configuraciones</string>
-    <string name="tap_to_change_image">Toca para cambiar imagen</string>
+    <string name="tap_to_change_image">Toca para cambiar tu foto de perfil</string>
     
     <!-- Lista de cursos -->
     <string name="my_courses">Mis Cursos</string>
@@ -17,17 +17,27 @@
     
     <!-- Agregar curso -->
     <string name="add_course">Agregar Curso</string>
-    <string name="course_name">Nombre del curso</string>
-    <string name="course_category">Categoría</string>
-    <string name="frequency_type">Tipo de frecuencia</string>
+    <string name="course_name">Nombre del curso (ej: Matemáticas, Física)</string>
+    <string name="course_category">Categoría del curso</string>
+    <string name="frequency_type">¿Cada cuánto tiempo quieres estudiar?</string>
     <string name="frequency_value">Cada</string>
     <string name="days">días</string>
     <string name="hours">horas</string>
-    <string name="next_session_date">Fecha y hora de próxima sesión</string>
+    <string name="weekly">días específicos</string>
+    <string name="next_session_date">¿Cuándo quieres que empiece tu primer recordatorio?</string>
     <string name="save_course">Guardar curso</string>
     <string name="cancel">Cancelar</string>
     <string name="custom_category">Categoría personalizada</string>
     <string name="add_custom_category">Agregar nueva categoría</string>
+    
+    <!-- Explicaciones detalladas -->
+    <string name="frequency_explanation">📅 DÍAS: Cada X días (ej: cada 4 días = Lunes 15:30 → Viernes 15:30)\n⏰ HORAS: Cada X horas dentro del mismo día (ej: cada 3h = 13:00 → 16:00 → 19:00 → 22:00)\n📆 DÍAS ESPECÍFICOS: Solo ciertos días de la semana (ej: Lunes, Miércoles, Viernes a las 15:30)</string>
+    <string name="schedule_explanation">⏰ Los recordatorios solo se envían entre las 6:00 AM y las 12:00 AM</string>
+    <string name="category_explanation">Las categorías te ayudan a organizar tus cursos y personalizar las notificaciones</string>
+    
+    <!-- Guía de uso -->
+    <string name="app_guide_title">📋 Guía de uso</string>
+    <string name="app_guide_content">1. 📸 Foto de perfil: Toca la imagen arriba para cambiar tu foto de perfil\n\n2. 📚 Agregar cursos: Usa el botón \"Ver mis cursos\" → \"+\" para agregar nuevos cursos\n\n3. ⏰ Frecuencias:\n• Por días: Cada X días (ej: cada 4 días)\n• Por horas: Cada X horas en el mismo día\n• Días específicos: Solo ciertos días de la semana\n\n4. 🔔 Notificaciones: Solo entre 6:00 AM y 12:00 AM\n\n5. ⚙️ Configuraciones: Personaliza tu experiencia en el menú de configuraciones</string>
     
     <!-- Configuraciones -->
     <string name="user_name">Nombre de usuario</string>

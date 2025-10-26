@@ -121,6 +121,7 @@ public class NotificationHelper {
             case CourseCategory.PRACTICA_CALIFICADA:
                 return CHANNEL_EXAMENES;
             default:
+                // Para categorías personalizadas, usar canal "otros"
                 return CHANNEL_OTROS;
         }
     }
@@ -196,11 +197,39 @@ public class NotificationHelper {
         
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (alarmManager != null) {
-            alarmManager.setExactAndAllowWhileIdle(
-                    AlarmManager.RTC_WAKEUP,
-                    course.getNextSessionDateTime(),
-                    pendingIntent
-            );
+            try {
+                // Verificar si podemos programar alarmas exactas (Android 12+)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    if (alarmManager.canScheduleExactAlarms()) {
+                        alarmManager.setExactAndAllowWhileIdle(
+                                AlarmManager.RTC_WAKEUP,
+                                course.getNextSessionDateTime(),
+                                pendingIntent
+                        );
+                    } else {
+                        // Usar alarma inexacta si no tenemos permisos
+                        alarmManager.setAndAllowWhileIdle(
+                                AlarmManager.RTC_WAKEUP,
+                                course.getNextSessionDateTime(),
+                                pendingIntent
+                        );
+                    }
+                } else {
+                    // Versiones anteriores a Android 12
+                    alarmManager.setExactAndAllowWhileIdle(
+                            AlarmManager.RTC_WAKEUP,
+                            course.getNextSessionDateTime(),
+                            pendingIntent
+                    );
+                }
+            } catch (SecurityException e) {
+                // Si hay problemas de permisos, usar alarma inexacta
+                alarmManager.setAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        course.getNextSessionDateTime(),
+                        pendingIntent
+                );
+            }
         }
     }
     
