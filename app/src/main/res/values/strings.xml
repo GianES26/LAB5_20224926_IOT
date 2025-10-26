@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Academic Planner</string>
+    
+    <!-- Pantalla principal -->
+    <string name="hello_user">¡Hola, %1$s!</string>
+    <string name="default_motivational_message">¡Hoy es un gran día para aprender!</string>
+    <string name="view_courses">Ver mis cursos</string>
+    <string name="settings">Configuraciones</string>
+    <string name="tap_to_change_image">Toca para cambiar imagen</string>
+    
+    <!-- Lista de cursos -->
+    <string name="my_courses">Mis Cursos</string>
+    <string name="add_new_course">Agregar nuevo curso</string>
+    <string name="no_courses_registered">No hay cursos registrados aún</string>
+    <string name="next_session">Próxima sesión:</string>
+    <string name="frequency">Frecuencia:</string>
+    
+    <!-- Agregar curso -->
+    <string name="add_course">Agregar Curso</string>
+    <string name="course_name">Nombre del curso</string>
+    <string name="course_category">Categoría</string>
+    <string name="frequency_type">Tipo de frecuencia</string>
+    <string name="frequency_value">Cada</string>
+    <string name="days">días</string>
+    <string name="hours">horas</string>
+    <string name="next_session_date">Fecha y hora de próxima sesión</string>
+    <string name="save_course">Guardar curso</string>
+    <string name="cancel">Cancelar</string>
+    <string name="custom_category">Categoría personalizada</string>
+    <string name="add_custom_category">Agregar nueva categoría</string>
+    
+    <!-- Configuraciones -->
+    <string name="user_name">Nombre de usuario</string>
+    <string name="motivational_message">Mensaje motivacional</string>
+    <string name="notification_frequency">Frecuencia de notificaciones motivacionales (horas)</string>
+    <string name="save_settings">Guardar configuración</string>
+    
+    <!-- Diálogos -->
+    <string name="delete_course">Eliminar curso</string>
+    <string name="delete_course_confirmation">¿Estás seguro de que deseas eliminar este curso?</string>
+    <string name="delete">Eliminar</string>
+    <string name="keep">Mantener</string>
+    
+    <!-- Categorías predefinidas -->
+    <string name="category_obligatorio">Obligatorio</string>
+    <string name="category_electivo">Electivo</string>
+    <string name="category_laboratorio">Laboratorio</string>
+    <string name="category_examen">Examen</string>
+    <string name="category_practica_calificada">Práctica Calificada</string>
+    
+    <!-- Mensajes -->
+    <string name="course_saved">Curso guardado exitosamente</string>
+    <string name="course_deleted">Curso eliminado</string>
+    <string name="settings_saved">Configuración guardada</string>
+    <string name="image_updated">Imagen actualizada</string>
+    <string name="permission_required">Permiso requerido para acceder a la galería</string>
+    
+    <!-- Notificaciones -->
+    <string name="notification_permission_title">Permiso de notificaciones</string>
+    <string name="notification_permission_message">Esta aplicación necesita permiso para enviar notificaciones de recordatorios de estudio.</string>
+    <string name="grant_permission">Conceder permiso</string>
+    <string name="deny_permission">Denegar</string>
+</resources>

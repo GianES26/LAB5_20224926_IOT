@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Colores primarios -->
+    <color name="primary_color">#1976D2</color>
+    <color name="primary_variant">#1565C0</color>
+    <color name="secondary_color">#FF9800</color>
+    <color name="secondary_variant">#F57C00</color>
+    
+    <!-- Colores de superficie -->
+    <color name="background_primary">#FAFAFA</color>
+    <color name="surface_variant">#F5F5F5</color>
+    <color name="surface_elevated">#FFFFFF</color>
+    
+    <!-- Colores de texto -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- Colores de estado -->
+    <color name="error_color">#D32F2F</color>
+    <color name="success_color">#388E3C</color>
+    <color name="warning_color">#F57C00</color>
+    
+    <!-- Colores de interfaz -->
+    <color name="divider_color">#E0E0E0</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="button_disabled">#BDBDBD</color>
+    
+    <!-- Colores específicos de categorías -->
+    <color name="category_obligatorio">#2196F3</color>
+    <color name="category_electivo">#4CAF50</color>
+    <color name="category_laboratorio">#FF9800</color>
+    <color name="category_examen">#F44336</color>
+    <color name="category_practica">#9C27B0</color>
+    <color name="category_custom">#607D8B</color>
+</resources>
