@@ -46,65 +46,75 @@ public class NotificationHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager manager = context.getSystemService(NotificationManager.class);
             
-            // Canal para cursos teóricos
+            // Canal para cursos teóricos (OBLIGATORIOS)
+            // Configuración: ALTA importancia + sonido + vibración
             NotificationChannel channelTeoricos = new NotificationChannel(
                     CHANNEL_TEORICOS,
-                    "Cursos Teóricos",
+                    "Cursos Obligatorios",
                     NotificationManager.IMPORTANCE_HIGH
             );
-            channelTeoricos.setDescription("Notificaciones para cursos obligatorios y teóricos");
+            channelTeoricos.setDescription("Cursos obligatorios - Alta prioridad con sonido y vibración");
             channelTeoricos.enableVibration(true);
             manager.createNotificationChannel(channelTeoricos);
             
             // Canal para laboratorios
+            // Configuración: ALTA importancia + sonido + vibración fuerte
             NotificationChannel channelLaboratorios = new NotificationChannel(
                     CHANNEL_LABORATORIOS,
                     "Laboratorios",
                     NotificationManager.IMPORTANCE_HIGH
             );
-            channelLaboratorios.setDescription("Notificaciones para cursos de laboratorio");
+            channelLaboratorios.setDescription("Cursos de laboratorio - Alta prioridad con sonido y vibración intensa");
             channelLaboratorios.enableVibration(true);
-            channelLaboratorios.setVibrationPattern(new long[]{0, 250, 250, 250});
+            channelLaboratorios.setVibrationPattern(new long[]{0, 500, 300, 500});
             manager.createNotificationChannel(channelLaboratorios);
             
             // Canal para electivos
+            // Configuración: MEDIA importancia + sin sonido + solo vibración
             NotificationChannel channelElectivos = new NotificationChannel(
                     CHANNEL_ELECTIVOS,
                     "Cursos Electivos",
                     NotificationManager.IMPORTANCE_DEFAULT
             );
-            channelElectivos.setDescription("Notificaciones para cursos electivos");
+            channelElectivos.setDescription("Cursos electivos - Sin sonido, solo vibración suave");
             channelElectivos.enableVibration(true);
+            channelElectivos.setSound(null, null); // Sin sonido
             manager.createNotificationChannel(channelElectivos);
             
-            // Canal para exámenes y prácticas
+            // Canal para exámenes y prácticas calificadas
+            // Configuración: MÁXIMA importancia + sonido + vibración muy fuerte
             NotificationChannel channelExamenes = new NotificationChannel(
                     CHANNEL_EXAMENES,
                     "Exámenes y Prácticas",
                     NotificationManager.IMPORTANCE_HIGH
             );
-            channelExamenes.setDescription("Notificaciones para exámenes y prácticas calificadas");
+            channelExamenes.setDescription("Exámenes y prácticas calificadas - Máxima prioridad con sonido y vibración fuerte");
             channelExamenes.enableVibration(true);
-            channelExamenes.setVibrationPattern(new long[]{0, 500, 200, 500});
+            channelExamenes.setVibrationPattern(new long[]{0, 1000, 500, 1000});
             manager.createNotificationChannel(channelExamenes);
             
             // Canal motivacional
+            // Configuración: BAJA importancia + sin sonido + sin vibración
             NotificationChannel channelMotivacional = new NotificationChannel(
                     CHANNEL_MOTIVACIONAL,
                     "Mensajes Motivacionales",
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    NotificationManager.IMPORTANCE_LOW
             );
-            channelMotivacional.setDescription("Mensajes motivacionales configurables");
+            channelMotivacional.setDescription("Mensajes motivacionales - Solo aparecen en barra de notificaciones");
             channelMotivacional.enableVibration(false);
+            channelMotivacional.setSound(null, null); // Sin sonido
             manager.createNotificationChannel(channelMotivacional);
             
-            // Canal para otros
+            // Canal para categorías personalizadas (OTROS)
+            // Configuración: BAJA importancia + sin sonido + sin vibración
             NotificationChannel channelOtros = new NotificationChannel(
                     CHANNEL_OTROS,
-                    "Otros",
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    "Categorías Personalizadas",
+                    NotificationManager.IMPORTANCE_LOW
             );
-            channelOtros.setDescription("Otras notificaciones de la aplicación");
+            channelOtros.setDescription("Categorías personalizadas - Solo aparecen en barra de notificaciones");
+            channelOtros.enableVibration(false);
+            channelOtros.setSound(null, null); // Sin sonido
             manager.createNotificationChannel(channelOtros);
         }
     }

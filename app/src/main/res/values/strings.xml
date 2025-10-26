@@ -30,13 +30,13 @@
     <string name="add_custom_category">Agregar nueva categoría</string>
     
     <!-- Explicaciones detalladas -->
-    <string name="frequency_explanation">📅 DÍAS: Cada X días (ej: cada 4 días = Lunes 15:30 → Viernes 15:30)\n⏰ HORAS: Cada X horas, patrón diario (ej: cada 4h desde 3:30 = 3:30, 7:30, 11:30, 15:30, 19:30, 23:30 cada día)</string>
+    <string name="frequency_explanation">📅 DÍAS: Cada X días (ej: cada 4 días = Lunes 15:30 → Viernes 15:30)\n\n⏰ HORAS: Patrón diario repetitivo. Si la suma de horas > 24h, solo se ejecuta una vez al día.\n• Ejemplo: cada 4h desde 2:30 = 2:30, 6:30, 10:30, 14:30, 18:30, 22:30 (diario)\n• Ejemplo: cada 23h desde 2:30 = solo 2:30 (diario)</string>
     <string name="schedule_explanation">⏰ Las notificaciones pueden programarse a cualquier hora del día</string>
-    <string name="category_explanation">Las categorías te ayudan a organizar tus cursos y personalizar las notificaciones</string>
+    <string name="category_explanation">Las categorías determinan el tipo de notificación:\n\n🔴 Obligatorios/Laboratorios: Sonido + vibración fuerte\n🟡 Electivos: Solo vibración suave\n🔴 Exámenes/Prácticas: Sonido + vibración muy fuerte\n⚪ Categorías personalizadas: Solo en barra de notificaciones</string>
     
     <!-- Guía de uso -->
     <string name="app_guide_title">📋 Guía de uso</string>
-    <string name="app_guide_content">1. 📸 Foto de perfil: Toca la imagen arriba para cambiar tu foto de perfil\n\n2. 📚 Agregar cursos: Usa el botón \"Ver mis cursos\" → \"+\" para agregar nuevos cursos\n\n3. ⏰ Frecuencias:\n• Por días: Cada X días (ej: cada 4 días)\n• Por horas: Patrón diario cada X horas\n\n4. 🔔 Notificaciones: A cualquier hora del día\n\n5. ⚙️ Configuraciones: Personaliza tu experiencia en el menú de configuraciones</string>
+    <string name="app_guide_content">1. 📸 Foto de perfil: Toca la imagen arriba para cambiar tu foto de perfil\n\n2. 📚 Agregar cursos: Usa el botón \"Ver mis cursos\" → \"+\" para agregar nuevos cursos\n\n3. ⏰ Frecuencias:\n• Por días: Cada X días (ej: cada 4 días)\n• Por horas: Patrón diario cada X horas\n\n4. 🔔 Tipos de notificaciones:\n• Obligatorios: Con sonido y vibración fuerte\n• Laboratorios: Con sonido y vibración intensa\n• Electivos: Solo vibración suave, sin sonido\n• Exámenes/Prácticas: Con sonido y vibración muy fuerte\n• Categorías personalizadas: Solo en barra, sin sonido ni vibración\n• Mensajes motivacionales: Solo en barra, sin sonido ni vibración\n\n5. ⚙️ Configuraciones: Personaliza tu experiencia y mensajes motivacionales</string>
     
     <!-- Configuraciones -->
     <string name="user_name">Nombre de usuario</string>

@@ -60,6 +60,8 @@ public class NotificationReceiver extends BroadcastReceiver {
             current.add(Calendar.DAY_OF_YEAR, course.getFrequencyValue());
         } else if ("hours".equals(course.getFrequencyType())) {
             // Para horas: calcular la siguiente notificación del día
+            // IMPORTANTE: Si la frecuencia es muy alta (ej: 23 horas), 
+            // solo se ejecutará una vez al día a la hora inicial
             Calendar originalTime = Calendar.getInstance();
             originalTime.setTimeInMillis(course.getNextSessionDateTime());
             
@@ -71,7 +73,8 @@ public class NotificationReceiver extends BroadcastReceiver {
             // Calcular la siguiente hora del patrón
             int nextHour = originalHour + frequencyHours;
             
-            // Si la siguiente hora se pasa de las 24 horas (>= 24), ir al día siguiente y reiniciar patrón
+            // Si la siguiente hora se pasa de las 24 horas (>= 24), 
+            // ir al día siguiente y reiniciar patrón desde la hora original
             if (nextHour >= 24) {
                 current.add(Calendar.DAY_OF_YEAR, 1);
                 current.set(Calendar.HOUR_OF_DAY, originalHour);
